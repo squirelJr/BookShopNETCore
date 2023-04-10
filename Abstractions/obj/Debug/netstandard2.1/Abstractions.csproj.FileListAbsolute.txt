@@ -1,0 +1,5 @@
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Abstractions\obj\Debug\netstandard2.1\Abstractions.csproj.AssemblyReference.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Abstractions\obj\Debug\netstandard2.1\Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Abstractions\obj\Debug\netstandard2.1\Abstractions.AssemblyInfoInputs.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Abstractions\obj\Debug\netstandard2.1\Abstractions.AssemblyInfo.cs
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Abstractions\obj\Debug\netstandard2.1\Abstractions.csproj.CoreCompileInputs.cache

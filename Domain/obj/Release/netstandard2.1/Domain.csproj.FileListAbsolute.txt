@@ -1,0 +1,13 @@
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.csproj.AssemblyReference.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.AssemblyInfoInputs.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.AssemblyInfo.cs
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\bin\Release\netstandard2.1\Domain.deps.json
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\bin\Release\netstandard2.1\Domain.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\bin\Release\netstandard2.1\Domain.pdb
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\bin\Release\netstandard2.1\Abstractions.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\bin\Release\netstandard2.1\Abstractions.pdb
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.csproj.CopyComplete
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\Domain\obj\Release\netstandard2.1\Domain.pdb

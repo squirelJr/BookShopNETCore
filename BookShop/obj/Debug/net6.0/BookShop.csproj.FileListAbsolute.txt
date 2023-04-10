@@ -1,0 +1,6 @@
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShop\obj\Debug\net6.0\BookShop.csproj.AssemblyReference.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShop\obj\Debug\net6.0\BookShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShop\obj\Debug\net6.0\BookShop.AssemblyInfoInputs.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShop\obj\Debug\net6.0\BookShop.AssemblyInfo.cs
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShop\obj\Debug\net6.0\BookShop.csproj.CoreCompileInputs.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShop\obj\Debug\net6.0\BookShop.MvcApplicationPartsAssemblyInfo.cache
