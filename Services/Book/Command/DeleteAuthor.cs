@@ -1,4 +1,5 @@
 ﻿
+using Abstractions.DTO;
 using Domain;
 using MediatR;
 using System;
@@ -9,32 +10,28 @@ using System.Threading.Tasks;
 
 namespace Services.Book.Command
 {
-    public class DeleteAuthorCommand : IRequest<IEnumerable<bool>>
+    public class DeleteAuthorCommandHandler : IRequestHandler<DeleteAuthorCommand,bool>
     {
-        public string Author { get; set; }
-    }
+        private readonly BooksDBContext _dbContext;
 
-    public class DeleteAuthorCommandHandler : IRequestHandler<DeleteAuthorCommand, IEnumerable<bool>>
-    {
-        private readonly BooksInMemory _booksInMemory;
-
-        public DeleteAuthorCommandHandler()
+        public DeleteAuthorCommandHandler(BooksDBContext dbContext)
         {
-            _booksInMemory = new BooksInMemory();
+            _dbContext = dbContext;
         }
 
-        public Task<IEnumerable<bool>> Handle(DeleteAuthorCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteAuthorCommand request, CancellationToken cancellationToken)
         {
             var existingAuthors=
-                _booksInMemory.BookDtos.Where(p => p.Author.Equals(request.Author)).ToList();
+                _dbContext.Books.Where(p => p.Author.Equals(request.Author)).ToList();
 
             if (existingAuthors != null)
             {
-                var result = existingAuthors.Select(b => { return b.IsActive = false; });
-                return Task.FromResult(result);
+                var result =  existingAuthors.Select(b => { return b.IsActive = false; });
+                await _dbContext.SaveChangesAsync();
+                return true;
             }
 
-            throw new InvalidOperationException("Invalid Book");
+            throw new InvalidOperationException("Invalid Author");
         }
     }
 }

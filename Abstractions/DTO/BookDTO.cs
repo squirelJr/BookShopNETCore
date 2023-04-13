@@ -1,8 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Abstractions.DTO
 {
     public class BookDTO
@@ -14,7 +10,6 @@ namespace Abstractions.DTO
         public bool IsActive { get; set; }
     }
 
-
     internal class BookDtoRequestValidation : AbstractValidator<BookDTO>
     {
         public BookDtoRequestValidation()
@@ -23,5 +18,6 @@ namespace Abstractions.DTO
             RuleFor(x => x.Description).NotEmpty();
         }
     }
+
 
 }

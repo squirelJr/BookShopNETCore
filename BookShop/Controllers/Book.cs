@@ -20,59 +20,65 @@ namespace BookShop.Controllers
 
 
         [HttpGet("book")]
-        public async Task<IActionResult> Get(long bookID)
+        public async Task<IActionResult> Get([FromQuery] GetBookByIdQuery bookId)
         {
-            var result = await _mediator.Send(new GetBookQuery() { BookId = bookID });
+            var result = await _mediator.Send(bookId);
             return Ok(result);
         }
 
         [HttpGet("books")]
-        public async Task<IActionResult> GetAll([FromQuery]int pageIndex,int rowCount)
+        public async Task<IActionResult> GetAll([FromQuery]GetAllBooksQuery request)
         {
-            var result = await _mediator.Send(new GetBooksQuery() { Count=rowCount,RowIndex=pageIndex});
+            var validator = new GetAllBooksQueryValidation();
+            var isValid =  validator.Validate(request);
+            if (!isValid.IsValid)
+            {
+                return BadRequest(isValid.Errors);
+            }
+            var result = await _mediator.Send(request);
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] BookDTO book)
+        public async Task<IActionResult> Create([FromBody] CreateBookCommand book)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             // Create product
-            var result = await _mediator.Send(new AddOrUpdateBookCommand() { BookDTO = book });
+            var result = await _mediator.Send(book);
 
             // Notify consumers
-            await _mediator.Publish(new PublishBookNotify() { Message = $"Book {book.Id} created" });
+            await _mediator.Publish(new PublishBookNotify() { Message = $"Book {result.Id} created" });
 
             return Ok(result);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] BookDTO BookDTO)
+        public async Task<IActionResult> Update([FromBody] UpdateBookCommand request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             // Update product
-            var result = await _mediator.Send(new AddOrUpdateBookCommand() { BookDTO = BookDTO });
+            var result = await _mediator.Send(request);
 
             // Notify consumers
-            await _mediator.Publish(new PublishBookNotify() { Message = $"Book {BookDTO.Id} updated" });
+            await _mediator.Publish(new PublishBookNotify() { Message = $"Book {result.Id} updated" });
 
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Remove(long BookID)
+        public async Task<IActionResult> Remove(DeleteBookCommand request)
         {
             // Remove product
-            var result = await _mediator.Send(new DeleteBookCommand() { BookID = BookID });
+            var result = await _mediator.Send(request);
 
             // Notify consumers
-            await _mediator.Publish(new PublishBookNotify() { Message = $"Book {BookID} removed" });
+            await _mediator.Publish(new PublishBookNotify() { Message = $"Book {result.Id} removed" });
 
             return Ok(result);
         }
@@ -80,13 +86,13 @@ namespace BookShop.Controllers
 
         [HttpDelete]
         [Route("RemoveAuthor")]
-        public async Task<IActionResult> RemoveAuthor(string Author)
+        public async Task<IActionResult> RemoveAuthor(DeleteAuthorCommand request)
         {
             // Remove product
-            var result = await _mediator.Send(new DeleteAuthorCommand() { Author = Author });
+            var result = await _mediator.Send(request);
 
             // Notify consumers
-            await _mediator.Publish(new PublishBookNotify() { Message = $"Author {Author} removed" });
+            await _mediator.Publish(new PublishBookNotify() { Message = $"Author {request.Author} removed" });
 
             return Ok(result);
         }

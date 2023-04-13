@@ -1,0 +1,15 @@
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\bin\Release\net6.0\Domain.deps.json
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\bin\Release\net6.0\Domain.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\bin\Release\net6.0\ref\Domain.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\bin\Release\net6.0\Domain.pdb
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\bin\Release\net6.0\Abstractions.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\bin\Release\net6.0\Abstractions.pdb
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.csproj.AssemblyReference.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.AssemblyInfoInputs.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.AssemblyInfo.cs
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.csproj.CopyComplete
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\ref\Domain.dll
+C:\Users\davit.gozalishvili\Desktop\BookShopC#\BookShop\BookShopNETCore\Domain\obj\Release\net6.0\Domain.pdb

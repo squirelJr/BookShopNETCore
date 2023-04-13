@@ -1,6 +1,7 @@
 ﻿using Abstractions.DTO;
 using Domain;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,30 +11,31 @@ using System.Threading.Tasks;
 
 namespace Services.Book.Query
 {
-    public class GetBookQuery:IRequest<BookDTO>
+  
+    public class GetBookQueryHandler : IRequestHandler<GetBookByIdQuery, BookDTO>
     {
-        public long BookId { get; set; }    
-    }
+        private readonly BooksDBContext _dbContext;
 
-
-    public class GetBookQueryHandler : IRequestHandler<GetBookQuery, BookDTO>
-    {
-        private readonly BooksInMemory _BooksInMemory;
-
-        public GetBookQueryHandler()
+        public GetBookQueryHandler(BooksDBContext dbContext)
         {
-            _BooksInMemory = new BooksInMemory();
+            _dbContext = dbContext;
         }
 
-        public Task<BookDTO> Handle(GetBookQuery request, CancellationToken cancellationToken)
+        public async  Task<BookDTO> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
         {
-            var Book = _BooksInMemory.BookDtos.Where(x => x.IsActive = true).FirstOrDefault(p =>  p.Id.Equals(request.BookId));
+            var Book = await _dbContext.Books.Where(b=>b.IsActive==true).FirstOrDefaultAsync(x =>  x.Id == request.Id, cancellationToken);
             if (Book == null)
             {
                 throw new InvalidOperationException("Invalid Book");
             }
-
-            return Task.FromResult(Book);
+            return new BookDTO()
+            {
+                Author = Book.Author,
+                IsActive = Book.IsActive,
+                Description = Book.Description,
+                Id = Book.Id,
+                Title = Book.Title
+            };
         }
     }
 

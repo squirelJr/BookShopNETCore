@@ -1,6 +1,7 @@
 ﻿using Abstractions.DTO;
 using Domain;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -8,25 +9,28 @@ using System.Threading.Tasks;
 
 namespace Services.Book.Query
 {
-    public class GetBooksQuery: IRequest<List<BookDTO>> {
-        public int RowIndex { get; set; } = 1;
-        public int Count { get; set; } = 10;
-    }
-
-    public class GetBooksQueryHandler : IRequestHandler<GetBooksQuery, List<BookDTO>>
+    public class GetBooksQueryHandler : IRequestHandler<GetAllBooksQuery, IEnumerable<BookDTO>>
     {
-        private readonly BooksInMemory _booksInMemory;
+        private readonly BooksDBContext _dbContext;
 
-        public GetBooksQueryHandler()
+        public GetBooksQueryHandler(BooksDBContext dbContext)
         {
-            _booksInMemory = new BooksInMemory();
+            _dbContext = dbContext;
         }
 
-        public Task<List<BookDTO>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<BookDTO>> Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
         {
-            var products = _booksInMemory.BookDtos.Where(x=>x.IsActive==true).ToList().Skip((request.RowIndex - 1) * request.Count).Take(request.Count).ToList(); 
 
-            return Task.FromResult(products);
+            var books = await _dbContext.Books.Where(b => b.IsActive == true).Skip((request.RowIndex - 1) * request.Count).Take(request.Count).Where(x=>x.IsActive==true).ToListAsync();
+
+            return books.Select(x => new BookDTO()
+            {
+                Author = x.Author,
+                IsActive = x.IsActive,
+                Description = x.Description,
+                Id = x.Id,
+                Title = x.Title,
+            });
         }
     }
 }

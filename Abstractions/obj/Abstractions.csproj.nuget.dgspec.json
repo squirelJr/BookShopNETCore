@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\Abstractions\\Abstractions.csproj": {}
+    "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\BookShopNETCore\\Abstractions\\Abstractions.csproj": {}
   },
   "projects": {
-    "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\Abstractions\\Abstractions.csproj": {
+    "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\BookShopNETCore\\Abstractions\\Abstractions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\Abstractions\\Abstractions.csproj",
+        "projectUniqueName": "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\BookShopNETCore\\Abstractions\\Abstractions.csproj",
         "projectName": "Abstractions",
-        "projectPath": "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\Abstractions\\Abstractions.csproj",
+        "projectPath": "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\BookShopNETCore\\Abstractions\\Abstractions.csproj",
         "packagesPath": "C:\\Users\\davit.gozalishvili\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\Abstractions\\obj\\",
+        "outputPath": "C:\\Users\\davit.gozalishvili\\Desktop\\BookShopC#\\BookShop\\BookShopNETCore\\Abstractions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -25,15 +25,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.1"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -44,8 +44,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "FluentValidation.AspNetCore": {
               "target": "Package",
@@ -67,7 +67,7 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "NETStandard.Library": {
+            "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },

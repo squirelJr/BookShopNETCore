@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Abstractions.DTO;
+using Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,29 +10,33 @@ using System.Threading.Tasks;
 
 namespace Services.Book.Command
 {
-    public class DeleteBookCommand : IRequest<bool>
-    {
-        public long BookID { get; set; }
-    }
 
-    public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand, bool>
+    public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand, BookDTO>
     {
-        private readonly BooksInMemory _booksInMemory;
+        private readonly BooksDBContext _dbContext;
 
-        public DeleteBookCommandHandler()
+        public DeleteBookCommandHandler(BooksDBContext dbContext)
         {
-            _booksInMemory = new BooksInMemory();
+            _dbContext = dbContext;
         }
 
-        public Task<bool> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
+        public async Task<BookDTO> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
         {
             var existingBook =
-                _booksInMemory.BookDtos.FirstOrDefault(p => p.Id.Equals(request.BookID));
+                _dbContext.Books.FirstOrDefault(p => p.Id.Equals(request.Id));
 
             if (existingBook != null)
             {
                 var result = existingBook.IsActive = false;
-                return Task.FromResult(result);
+                await _dbContext.SaveChangesAsync();
+                return new BookDTO
+                {
+                    Id =existingBook.Id,
+                    Author = existingBook.Author,
+                    IsActive = existingBook.IsActive,
+                    Description = existingBook.Description,
+                    Title= existingBook.Title,
+                };
             }
 
             throw new InvalidOperationException("Invalid book");
